@@ -32,6 +32,9 @@ pipeline {
 	  sh "echo Image built successfully with name ${IMAGE_NAME}:${BUILD_NUMBER}"
       sh "docker image rm ${IMAGE_NAME}:${BUILD_NUMBER}"
 	}
+     always {
+      deleteDir() /* cleanup the workspace */
+    }
 	
  }	
 }

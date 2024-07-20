@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage("Switch Branch") {
 	  steps {
-	    sh "whoami ${DOCKER_CRED_USR} : ${DOCKER_CRED_PSW}"
 		sh "git checkout develop"
 		}
 	}
@@ -31,6 +30,7 @@ pipeline {
   post {
 	success {
 	  sh "echo Image built successfully with name ${IMAGE_NAME}:${BUILD_NUMBER}"
+      sh "docker image rm ${IMAGE_NAME}:${BUILD_NUMBER}"
 	}
 	
  }	

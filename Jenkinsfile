@@ -9,15 +9,20 @@ pipeline {
         sh "ls"
 		}
 	}
+
+    stage("Build the code") {
 	  steps {
 	    sh "mvn clean install"
+        sh "cp ./target/*.jar ."
 		}
 	}
-}
+  }
+
 
   post {
 	success {
 	  sh "echo Success"
 	}
 	
-}	
+ }	
+}

@@ -27,7 +27,7 @@ pipeline {
     stage("Spinning docker container") {
 	  steps {
         sh 'docker stop case_study_master || true && docker rm case_study_master || true'
-        sh 'docker run --name case_study_master -p 82:80 ${IMAGE_NAME}:${BUILD_NUMBER}'
+        sh 'docker run --name case_study_master -d -p 82:80 ${IMAGE_NAME}:${BUILD_NUMBER}'
 		}
 	}
   }

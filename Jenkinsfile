@@ -10,7 +10,7 @@ pipeline {
 	  steps {
 	   
 		sh "git checkout develop"
-        sh "echo ${DOCKER_CRED_USR}"
+        sh "sudo su"
 		}
 	}
 

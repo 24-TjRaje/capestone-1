@@ -1,5 +1,5 @@
 pipeline {
-  agent 'spring' 
+  agent any
   
   stages {
     stage("Clone Code") {

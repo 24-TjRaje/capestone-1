@@ -10,7 +10,6 @@ pipeline {
 	  steps {
 	   
 		sh "git checkout develop"
-        sh "sudo su"
 		}
 	}
 

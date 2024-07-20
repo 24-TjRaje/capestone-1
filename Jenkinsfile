@@ -16,14 +16,14 @@ pipeline {
 
     stage("Build the docker image") {
 	  steps {
-	    sh "sudo docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+	    sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
 
 		}
 	}
     stage("Pushing the docker image") {
 	  steps {
-        sh "${DOCKER_CRED_PSW} | sudo docker login -u ${DOCKER_CRED_USER} --password-stdin "
-	    sh "sudo docker push -t ${IMAGE_NAME}:${BUILD_NUMBER}"
+        sh "${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USER} --password-stdin "
+	    sh "docker push -t ${IMAGE_NAME}:${BUILD_NUMBER}"
 		}
 	}
   }

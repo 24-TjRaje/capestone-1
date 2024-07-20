@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage("Switch Branch") {
 	  steps {
-		sh "git checkout develop"
+		sh "git checkout master"
 		}
 	}
 

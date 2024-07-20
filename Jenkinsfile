@@ -2,15 +2,13 @@ pipeline {
   agent any
   
   stages {
-    stage("Clone Code") {
+    stage("Switch Branch") {
 	  steps {
-	    echo "Hello world"
-		sh "git clone https://github.com/24-TjRaje/capestone-1.git"
-		sh "cd capestone-1"
+	   
 		sh "git checkout develop"
+        sh "ls"
 		}
 	}
-    stage("Build Code") {
 	  steps {
 	    sh "mvn clean install"
 		}

@@ -21,7 +21,7 @@ pipeline {
 	}
     stage("Pushing the docker image") {
 	  steps {
-        sh "${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USR} --password-stdin "
+        sh "docker login -u ${DOCKER_CRED_USR} -p ${DOCKER_CRED_PSW}"
 	    sh "docker push -t ${IMAGE_NAME}:${BUILD_NUMBER}"
 		}
 	}

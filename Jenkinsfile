@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage("Switch Branch") {
 	  steps {
-	   
+	    sh "whoami"
 		sh "git checkout develop"
 		}
 	}
@@ -21,7 +21,7 @@ pipeline {
 	}
     stage("Pushing the docker image") {
 	  steps {
-        sh "${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USER} --password-stdin "
+        sh "${DOCKER_CRED_PSW} | docker login -u ${DOCKER_CRED_USR} --password-stdin "
 	    sh "docker push -t ${IMAGE_NAME}:${BUILD_NUMBER}"
 		}
 	}

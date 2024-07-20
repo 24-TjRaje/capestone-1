@@ -2,13 +2,13 @@ pipeline {
   agent any
   environment {
     IMAGE_NAME = 'tjraje2157/casestudy-develop'
-    DOCKER_CRED = credentials('d6a172ae-18ec-4888-b7de-04fdeb9dc756')
+    DOCKER_CRED = credentials('7f6b2922-1e31-4033-9b6b-ee057eafb26b')
   }
   
   stages {
     stage("Switch Branch") {
 	  steps {
-	    sh "whoami"
+	    sh "whoami ${DOCKER_CRED_USR} : ${DOCKER_CRED_PSW}"
 		sh "git checkout develop"
 		}
 	}
